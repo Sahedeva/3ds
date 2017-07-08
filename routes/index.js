@@ -45,9 +45,9 @@ router.post('/xcode', function(req, res, next){
   newTest.save(function(err){
     if (err) console.log(err);
 
-    res.send('Test created!');
+    res.json({two: 2});
   })
-  res.json({two: 2});
+
 });
 
 module.exports = router;
