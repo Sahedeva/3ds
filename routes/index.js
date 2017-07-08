@@ -36,10 +36,12 @@ router.post('/login', function(req, res, next) {
 });
 
 router.post('/xcode', function(req, res, next){
-  var one = req.body.one;
-  console.log('One: ',one);
+  // var one = req.body.one;
+  var bod = req.body;
+  console.log('bod: ', bod);
+  // console.log('One: ',one);
   var newTest = Test({
-    one: one
+    bod: bod
   });
 
   newTest.save(function(err){

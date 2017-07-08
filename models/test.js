@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var testSchema = new mongoose.Schema({
   one: Number,
+  bod: Object,
   created_at: Date,
   updated_at: Date
 });
