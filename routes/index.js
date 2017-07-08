@@ -38,15 +38,15 @@ router.post('/login', function(req, res, next) {
 router.post('/xcode', function(req, res, next){
   var one = req.body.one;
   console.log('One: ',one);
-  // var newTest = Test({
-  //   one: one
-  // });
-  //
-  // newTest.save(function(err){
-  //   if (err) console.log(err);
-  //
-  //   res.send('Test created!');
-  // })
+  var newTest = Test({
+    one: one
+  });
+
+  newTest.save(function(err){
+    if (err) console.log(err);
+
+    res.send('Test created!');
+  })
   res.json({two: 2});
 });
 
