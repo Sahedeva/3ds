@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Test = require('../models/test');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,6 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', function(req,res,next){
   res.render('login', {title: 'Login Page'});
+});
+
+router.get('/xcode', function(req, res, next){
+  res.render('xcode', {title: 'Xcode Page'});
 });
 
 router.post('/login', function(req, res, next) {
@@ -28,6 +33,21 @@ router.post('/login', function(req, res, next) {
 
         res.send('User created!');
     });
+});
+
+router.post('/xcode', function(req, res, next){
+  var one = req.body.one;
+  console.log('One: ',one);
+  // var newTest = Test({
+  //   one: one
+  // });
+  //
+  // newTest.save(function(err){
+  //   if (err) console.log(err);
+  //
+  //   res.send('Test created!');
+  // })
+  res.json({two: 2});
 });
 
 module.exports = router;
