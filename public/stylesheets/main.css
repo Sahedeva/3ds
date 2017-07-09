@@ -239,3 +239,20 @@ span{
 
 .no-bg{background: transparent;}
 .border-green-round-all{border: solid 2px #4EA975; border-radius: 20px;}
+
+.icon{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.background-circle{
+  width: 1.6em;
+   text-align: center;
+   line-height: 1.6em;
+   background: #2DBEA0;
+   color: #fff;
+   border-radius: 0.8em;
+ }
+ form{
+   width: 318px;
+   margin: 10px;
+ }

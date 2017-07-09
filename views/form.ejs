@@ -7,7 +7,7 @@
                             <label class="sr-only" for="description">Product Description</label>
                             <div class="input-group my-2">
                                 <i class="material-icons pr-3 green align-self-center d-flex">note_add</i>
-                                <select class="custom-select border-green">
+                                <select name="description" class="custom-select border-green">
                                     <option value="acornsquash">Acorn Squash</option>
                                     <option value="asparagus">Asparagus</option>
                                     <option value="avocado">Avocado</option>
@@ -68,10 +68,10 @@
                           <div class="input-group my-2 mr-sm-2 d-flex">
                             <i class="material-icons pr-1 align-self-center d-flex">attach_money</i>
                               <div class="border-green-round-right d-flex">
-                                  <input class="no-bg-border pl-2 align-contents-center" type="number" name="costperlb" placeholder="Cost per lb" value="">
+                                  <input class="no-bg-border pl-2 align-contents-center" step="0.01" type="number" name="costperlb" placeholder="Cost per lb" value="">
                               </div>
                             <label class="sr-only" for="location">Location</label>
-                            <select class="custom-select ml-4 green-bot">
+                            <select name="container" class="custom-select ml-4 green-bot">
                                 <option value="pkg">Pkg</option>
                                 <option value="bin">Bin</option>
                                 <option value="bag">Bag</option>
@@ -81,7 +81,7 @@
                           <div class="input-group my-2 mr-sm-2">
                             <i class="material-icons pr-1 align-self-center d-flex">location_on</i>
                             <div class="border-green-round-right d-flex">
-                              <input class="no-bg-border pl-2" type="text" name="Location" placeholder="Location" value="">
+                              <input class="no-bg-border pl-2" type="text" name="location" placeholder="Location" value="">
                             </div>
                           </div>
                           <hr>
@@ -93,13 +93,13 @@
                             </div>
                           </div>
                           <label class="sr-only" for="cost">Cost per lb</label>
-                          <div class="input-group my-2 mr-sm-2 d-flex">
+                          <!-- <div class="input-group my-2 mr-sm-2 d-flex">
                             <i class="material-icons pr-1 align-self-center d-flex">attach_money</i>
                               <div class="border-green-round-right d-flex">
                                 <input class="no-bg-border pl-2" type="number" name="costperlb" placeholder="Estimated Load Cost" value="">
                               </div>
                             <i class="material-icons pl-2 align-self-center d-flex green">refresh</i>
-                          </div>
+                          </div> -->
                           <label class="sr-only" for="vendorname">Vendor Name</label>
                           <div class="input-group my-2 mr-sm-2">
                               <i class="material-icons pr-1 align-self-center d-flex">person</i>

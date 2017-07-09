@@ -74,7 +74,7 @@ router.get('/foodorder',function(req,res,next){
   var id = req.query.id;
   Product.findOne({_id:id}, function(err, product){
     Foodbank.findOne({_id:"596211f31acdec1fa88ee67f"}, function (err,foodbank){
-      res.render('foodorder', {product:product, foodbank:foodbank});
+      res.render('foodorder', {product:product, foodbank:foodbank,palletnum:0});
     });
 
   });
@@ -108,7 +108,8 @@ router.post('/addproduct', function(req, res, next) {
         vendorname: req.body.vendorname,
         shelflife: req.body.shelflife,
         combo: req.body.combo,
-        comments: req.body.comments
+        comments: req.body.comments,
+        vegPallet: 0
     });
 
     // Save the user
@@ -160,6 +161,24 @@ router.get('/products', function(req,res,next){
   res.render('products', {title:'CSV picker'});
 });
 
+router.post('/plus_minus', function(req,res,next){
+  var vegId = req.body.vegId;
+  var totalPallet = req.body.totalPallet;
+  var truckId = req.body.truckId;
+  var vegPallet = req.body.vegPallet;
+  Foodbank.findOneAndUpdate({_id:truckId},{totalPallet: totalPallet}, {new: true}, function(err, foodbank) {
+    Product.findOneAndUpdate({_id:vegId},{vegPallet: vegPallet}, {new: true}, function(err, product) {
+      res.send({
+           success: true
+           });
+   if (err) {
+     console.log('got an error');
+   }
+
+  });
+});
+});
+
 router.post('/login', function(req, res) {
   var email = req.body.email;
   var password = req.body.password;
@@ -198,8 +217,16 @@ router.get('/foodproductlist',function(req,res,next){
   });
 });
 
-router.get('/emailtest', function(req, res, next){
+router.get('/feednotification', function(req,res,next){
+  Foodbank.find({},function(err, foodbanks){
+    res.render('feednotification', {foodbanks:foodbanks});
+  });
+})
+
+router.post('/emailnotification', function(req, res, next){
   console.log('got here');
+  var subject = req.body.subject;
+  var body = req.body.body;
   var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -207,11 +234,12 @@ router.get('/emailtest', function(req, res, next){
             pass: 'Test1234!' // Your password
         }
     });
+
     var mailOptions = {
     from: 'noreplay@gmail.com', // sender address
-    to: 'robertgweilbaecher@gmail.com', // list of receivers
-    subject: 'Email Example', // Subject line
-    html: '<h1>Oh yeah!</h1><br><b>Hello world ✔</b>' // You can choose to send an HTML body instead
+    to: 'stackbaxter@gmail.com', // list of receivers
+    subject: subject, // Subject line
+    body: body // You can choose to send an HTML body instead
     };
     transporter.sendMail(mailOptions, function(error, info){
     if(error){
@@ -222,6 +250,14 @@ router.get('/emailtest', function(req, res, next){
         res.json({yo: info.response});
     };
     });
+});
+
+router.get('/orderreceived', function(req,res,next){
+  var id = req.query.id;
+  Foodbank.findOne({'_id':id}, function(err, foodbank){
+    var load = foodbank.load;
+    var loadcost = foodbank.loadcost;
+  });
 });
 
 router.post('/products', function(req,res,next){

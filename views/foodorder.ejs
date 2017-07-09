@@ -11,9 +11,9 @@
                 The numbers 0 and 1 that are being passed to the load function
                 represent subtract and add functionalities respectively.
             -->
-            <a onclick="load(0)" href="#"><i class="material-icons green px-2">remove</i></a><div id="numPallets">1</div><a onclick="load(1)" href="#"><i class="material-icons green px-2">add</i></a>
+            <!-- <a onclick="decrease(<%= product['_id'] %>,<%= foodbank['_id'] %>,<%= product['costperlb'] %>)" href="#"><i class="material-icons green px-2">remove</i></a><div id="numPallets"><%= foodbank['totalPallet'] %></div><a onclick="increase(<%= product['_id'] %>,<%= foodbank['_id'] %>,<%= product['costperlb'] %>)" href="#"><i class="material-icons green px-2">add</i></a> -->
 
-
+            <!-- <h2><%= palletnum %></h2> -->
 
         </div>
         <div id="lowerContent">
@@ -21,28 +21,29 @@
             <a onclick="option('default', 'other', 'table1', 'table2')" href="#" id="table1">Details</a><a onclick="option('other', 'default', 'table2', 'table1')" href="#" id="table2">Comments</a>
             <table id="default">
                 <tr>
-                    <td>Estimated Load Cost (<span id="num">1 pallet</span>):</td><td></td>
+                    <td>Estimated Load Cost (<span id="<%= product['_id'] %>"><%= foodbank['load'][product['_id']] %> pallet</span>):</td>$<td id="estCost"></td>
                 </tr>
                 <tr>
-                    <td>Location:</td><td></td>
+                    <td>Location: <%= product.location %></td><td></td>
                 </tr>
                 <tr>
-                    <td>Truckloads Offered:</td><td></td>
+                    <td>Truckloads Offered: <%= product.truckloadsoffered %></td><td></td>
                 </tr>
                 <tr>
-                    <td>Vendore Name:</td><td></td>
+                    <td>Vendor Name: <%= product.vendorname %></td><td></td>
                 </tr>
                 <tr>
-                    <td>Estimated Shelf Life:</td><td></td>
+                    <td>Estimated Shelf Life: <%= product.shelflife %> days</td><td></td>
                 </tr>
             </table>
 
             <table id="other">
                 <tr>
-                    <td>Comments</td><td></td>
+                    <td>Comments</td>
+                    <td><%= product.comments %></td>
                 </tr>
                 <tr>
-                    <td>Combo?</td><td></td>
+                    <td>Combo?</td><td><%= product.combo %></td>
                 </tr>
             </table>
             <a id="preorder" href="#">Pre-Order</a>
@@ -82,5 +83,6 @@
         tableSelect.style.borderBottomColor = "#ebebeb"
     }
 </script>
+<script src="../javascripts/fooder.js" charset="utf-8"></script>
 </body>
 </html>

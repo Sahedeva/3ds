@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var foodbankSchema = new mongoose.Schema({
   load: Object,
   loadcost: String,
+  totalPallet: String,
   foodbankname: String,
   foodbankaddress: String,
   foodbankphone: String,

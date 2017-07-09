@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var productSchema = new mongoose.Schema({
   description: String,
+  vegPallet: String,
   costperlb: String,
   loadcost: String,
   container: String,
