@@ -256,3 +256,103 @@ span{
    width: 318px;
    margin: 10px;
  }
+
+.border-green-round-all{
+  border: solid 2px #4EA975;
+  border-radius: 20px;
+}
+.border-gray-round-all{
+  border: solid 2px #BBBBBB;
+  border-radius: 20px;}
+
+.green-button{
+  background-color: #4EA975;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+}
+
+ .submit-gray{
+   background-color: #BBBBBB;
+   width: 250px;
+   text-align: center;
+   border-radius: 10px;
+   border-radius:20px;
+   color:white;
+ }
+ .border-gray-round-right {
+  border: solid 2px #BBBBBB;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.border-green-round-right {
+  border: solid 2px #4EA975;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.no-bg-border{background: transparent; border: none;}
+.no-bg{background: transparent;}
+.border-green-round-all{
+  border: solid 2px #4EA975;
+  border-radius: 20px;
+}
+
+.item{
+  display: flex;
+  background-color: #D9E9DF;
+  margin-top: 10px;
+}
+.picAmt{
+  flex-direction: column;
+  border-right: 2px solid black;
+  width: 4rem;
+  padding: 3px;
+  margin-right: 5px;
+}
+.magic{
+  display: flex;
+  align-content: center;
+}
+.veggie{
+  align-self: left;
+  height: 50px;
+  width: 50px;
+  margin: 5px;
+}
+
+.align-self-end.bottom-total { top: 75vh; position: absolute; }
+.align-self-end.bottom-button { top: 90vh; position: absolute; }
+
+.green-button-rect{
+  background-color: #4EA975;
+  color: white;
+  border-style: none;
+  padding: 20px;
+}
+.produce-total{ font-size: 1.5em; }
+.color-red{color: #E20F00;}
+.border-brown-round-left { border: solid 2px #DEB887; border-top-left-radius: 20px; border-bottom-left-radius: 20px; }
+.material-icons.pr-1.align-self-center.icon-brown-round-right.d-flex {
+    background-color: #DEB887;
+    color: #590707;
+    padding: 7px;
+    border-top-right-radius: 33%;
+    border-top-left-radius: 0%;
+    border-bottom-right-radius: 33%;
+    border-bottom-left-radius: 0%;
+}
+.submit-brown{background-color: #464646; width: 250px; text-align: center; border-radius: 10px; border-radius:20px;
+  color:white;
+}
+
+.complete-order{font-size: 3em;}
+.background-circle{
+   width: 1.6em;
+   text-align: center;
+   line-height: 1.6em;
+   background: #4EA975;
+   color: #fff;
+   border-radius: 0.8em;
+   font-size: 4em;
+ }

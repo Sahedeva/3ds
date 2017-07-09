@@ -1,0 +1,39 @@
+<% include ./partials/headerfood %>
+        <div class="item d-flex">
+          <div class="d-flex flex-row">
+            <div class="picAmt">
+                <img class="veggie" src="../images/<%= product['description'] %>.png"/>
+                <p>Qty: 21</p>
+            </div>
+
+            <div class="d-flex-inline align-items-end">
+                <div>Item: </div>
+                <div>Vendor: </div>
+            </div>
+            <div class="d-flex-inline align-items-center">
+                <div class=""><strong><%= product['description']%></strong></div>
+                <div class=""><strong><%= product['vendorname']%></strong></div>
+            </div>
+            <span class="d-flex-inline align-self-end justify-content-end">
+                <i class="material-icons color-red">delete</i>
+            </span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-self-end bottom-total">
+            <div class="justify-content-start pl-2">
+                <div class="produce-total">
+                    TOTAL(Produce): $2520
+                </div>
+                <div class="">
+                    *Truck delivery will cost extra
+                </div>
+            </div>
+            <div class="justify-content-end pt-2">
+                USD
+            </div>
+        </div>
+        <h5>Delievery Date: 07/19/2017</h5>
+        <h5>Will be delivered between 3PM and 5PM</h5>
+
+    </body>
+</html>

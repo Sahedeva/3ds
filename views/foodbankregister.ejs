@@ -1,35 +1,148 @@
 <% include ./partials/header %>
 
-  <h2 style="text-align:center;">Register</h2>
-  <div class="d-flex justify-content-center">
-
-    <br>
-    <form class="foodbankregister" action="foodbankregister" method="post">
-      <input type="text" name="foodbankname" placeholder="foodbankname" value=""><br>
-      <input type="text" name="foodbankaddress" placeholder="foodbankaddress" value=""><br>
-      <input type="tel" name="foodbankphone" placeholder="foodbankphone" value=""><br>
-      <input style="width: 50px;" type="number" min="1" max="2" placeholder="tier" name="tier" value=""><br>
-      <input type="text" name="accountingFirstName" placeholder="accountingFirstName" value=""><br>
-      <input type="text" name="accountingLastName" placeholder="accountingLastName" value=""><br>
-      <input type="email" name="accountingEmail" placeholder="accountingEmail" value=""><br>
-      <input type="tel" name="accountingPhone" placeholder="accountingPhone" value=""><br>
-      <input type="tel" name="accountingMobile" placeholder="accountingMobile" value=""><br>
-      <input type="text" name="accountingPosition" placeholder="accountingPosition" value=""><br>
-      <input type="text" name="receivingFirstName" placeholder="receivingFirstName" value=""><br>
-      <input type="text" name="receivingLastName" placeholder="receivingLastName" value=""><br>
-      <input type="email" name="receivingEmail" placeholder="receivingEmail" value=""><br>
-      <input type="tel" name="receivingPhone" placeholder="receivingPhone" value=""><br>
-      <input type="tel" name="receivingMobile" placeholder="receivingMobile" value=""><br>
-      <input type="text" name="receivingPosition" placeholder="receivingPosition" value=""><br>
-      <input type="text" name="sourcingFirsName" placeholder="sourcingFirstName" value=""><br>
-      <input type="text" name="sourcingLastName" placeholder="sourcingLastName" value=""><br>
-      <input type="email" name="sourcingEmail" placeholder="sourcingEmail" value=""><br>
-      <input type="tel" name="sourcingMobile" placeholder="sourcingMobile" value=""><br>
-      <input type="tel" name="sourcingPhone" placeholder="sourcingPhone" value=""><br>
-      <input type="text" name="sourcingPosition" placeholder="sourcingPosition" value=""><br>
-      <input type="submit" name="submit" value="Submit">
-    </form>
-  </div>
-
-  </body>
-</html>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <br>
+            <form class="foodbankregister" action="foodbankregister" method="post">
+            </form>
+          </div>
+        <div class="d-flex justify-content-center align-content-middle">
+            <form class="addproduct col-12 col-sm-6" action="/addproduct" method="post">
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="fullname" placeholder="Full Name" value="">
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">group</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="foodbankname" placeholder="Food Bank Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">location_on</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="foodbankaddress" placeholder="Food Bank Address" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="accountingFirstName" placeholder="Accounting First Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="accountingLastName" placeholder="Accounting Last Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">email</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="email" name="accountingEmail" placeholder="Accounting Email" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">phone</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="tel" name="accountingPhone" placeholder="Accounting Phone" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">smartphone</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="tel" name="accountingMobile" placeholder="Accounting Mobile" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">filter_list</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="accountingPosition" placeholder="Accounting Position" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="receivingFirstName" placeholder="Receiving First Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="receivingLastName" placeholder="Receiving Last Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">email</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="email" name="receivingEmail" placeholder="Receiving Email" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">phone</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="tel" name="receivingPhone" placeholder="Receiving Phone" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">smartphone</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="tel" name="receivingMobile" placeholder="Receiving Mobile" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">filter_list</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="receivingPosition" placeholder="Receiving Position" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="sourcingFirsName" placeholder="Sourcing First Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">person</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="sourcingLastName" placeholder="Sourcing Last Name" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">email</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="email" name="sourcingEmail" placeholder="Sourcing Email" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">smartphone</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="tel" name="sourcingMobile" placeholder="Sourcing Mobile" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">phone</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="tel" name="sourcingPhone" placeholder="Sourcing Phone" value=""><br>
+                      </div>
+                  </div>
+                  <div class="input-group my-2 mr-sm-2 d-flex justify-content-center">
+                      <div class="border-gray-round-all color-green p-2 d-flex">
+                        <i class="material-icons align-self-center d-flex">filter_list</i>
+                        <input class="no-bg-border pl-2 align-contents-center" type="text" name="sourcingPosition" placeholder="Sourcing Position" value=""><br>
+                      </div>
+                  </div>
+                  <textarea name="comments" rows="4" class="mb-2 border-green-round-all p-1 d-flex justify-content-start mt-2" cols="40" placeholder="Comments"></textarea>
+                  <div class="d-flex justify-content-end hidden-sm-up]">
+                      <button href="submit" class="mt-2 py-2 submit-brown">
+                          Submit
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </form>
+    </div>
+ </body>

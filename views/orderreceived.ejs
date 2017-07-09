@@ -1,15 +1,25 @@
 <% include ./partials/header %>
 
-<div class="item">
-        <div class="picAmt">
-          <img class="veggie" src="https://placeholdit.co//i/50x50?&text=veggie"/>
-          <p>Qty: </p>
+<div class="item d-flex">
+  <div class="d-flex flex-row">
+    <div class="picAmt">
+        <img class="veggie" src="../images/<%= product['description'] %>.png"/>
+        <p>Qty: 21</p>
+    </div>
+    <div class="d-flex justify-content-start">Tier <%= foodbank['tier'] %></div>
+
+    <div class="d-flex-inline align-items-end">
+        <div>Item: </div>
+        <div>Vendor: </div>
+        <div>FoodBank: </div>
+    </div>
+    <div class="d-flex-inline align-items-center">
+        <div class=""><strong><%= product['description']%></strong></div>
+        <div class=""><strong><%= product['vendorname']%></strong></div>
+        <div class=""><strong><%= foodbank['foodbankname']%></strong></div>
+        <div class=""><strong>Delivery Date: 7/19/2017</strong></div>
+        <div class=""><strong>Arrival between 3PM and 5PM</strong></div>
+
+
         </div>
-        <span>Tier (var)</span>
-      <div class="d-flex flex-column align-items-center magic" style="margin-left:40px;">
-          <p>Item: <strong>Watermelon</strong></p>
-          <p>Vendor: <strong>Morgan and Sons Farms</strong></p>
-          <p>FoodBank: <strong>Brazos Valley</strong></p>
-          <p>Delivery Date: <strong>DateTime</strong></p>
-        </div>
-      </div>
+    </div>

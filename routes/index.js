@@ -6,6 +6,7 @@ var Product = require('../models/product');
 var Foodbank = require('../models/foodbank');
 var request = require("request");
 var csv = require("csv");
+var Orderlog = require('../models/orderlog');
 var nodemailer = require('nodemailer');
 var bcrypt = require('bcrypt');
 
@@ -14,7 +15,35 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
+router.get('/orderconfirmationfood', function(req,res,next){
+  var id = req.query.id;
+  Product.findOne({_id:id}, function(err, product){
+    Foodbank.findOne({_id:"596211f31acdec1fa88ee67f"}, function (err,foodbank){
+      res.render('orderconfirmationfood', {product:product, foodbank:foodbank});
+    });
 
+  });
+});
+
+router.get('/orderlogs', function(req,res,next){
+  Product.findOne({'_id': "596227e7bb8f4a209dd0f8dd"}, function(err, product){
+      res.render('orderlogs', {product:product});
+  });
+
+});
+
+router.get('/addressfood', function(req,res,next){
+  res.render('addressfood');
+});
+
+router.get('/deliverydateandtime', function(req,res,next){
+  res.render('deliverydateandtime');
+});
+
+router.post('/deliverydatefood', function(req,res,next){
+
+  res.render('orderconfirmfood');
+});
 
 router.get('/login', function(req,res,next){
   res.render('login');
@@ -237,26 +266,29 @@ router.post('/emailnotification', function(req, res, next){
 
     var mailOptions = {
     from: 'noreplay@gmail.com', // sender address
-    to: 'stackbaxter@gmail.com', // list of receivers
+    to: 'brendankellyatx@gmail.com', // list of receivers
     subject: subject, // Subject line
     body: body // You can choose to send an HTML body instead
     };
     transporter.sendMail(mailOptions, function(error, info){
     if(error){
         console.log(error);
-        res.json({yo: 'error'});
-    }else{
+
+    }
         console.log('Message sent: ' + info.response);
-        res.json({yo: info.response});
-    };
+        res.render('emailconfirmation');
     });
 });
 
+router.get('/emailconfirmation', function(req,res,next){
+  res.render('emailconfirmation');
+});
+
 router.get('/orderreceived', function(req,res,next){
-  var id = req.query.id;
-  Foodbank.findOne({'_id':id}, function(err, foodbank){
-    var load = foodbank.load;
-    var loadcost = foodbank.loadcost;
+  Foodbank.findOne({'_id': "596211f31acdec1fa88ee67f"}, function(err, foodbank){
+    Product.findOne({'_id': "596227e7bb8f4a209dd0f8dd"}, function(err,product){
+        res.render('orderreceived', {foodbank:foodbank,product:product});
+    })
   });
 });
 

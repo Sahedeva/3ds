@@ -1,0 +1,41 @@
+<% include ./partials/headerfood %>
+
+<body>
+        <div class="d-flex justify-content-center align-content-middle">
+            <h2>Delivery Date and Time</h2>
+        </div>
+        <div class="d-flex justify-content-center align-content-middle">
+
+           <div class="d-flex justify-content-center">
+               <form class="orderconfirmfood col-12" action="/deliverydatefood" method="post">
+                   <div class="d-flex-inline">
+                    <label class="sr-only" for="deliverydate">Delivery Date</label>
+                    <div class="input-group my-2 mr-sm-2 justify-content-center">
+                        <div class="border-brown-round-left d-flex">
+                            <input class="no-bg-border pl-2" type="Date" name="location" value="">
+                        </div>
+                        <i class="material-icons pr-1 align-self-center icon-brown-round-right d-flex">date_range</i>
+                    </div>
+                    <div class="row my-2">
+                        <label class="sr-only" for="startdeliverytime">Start Delivery Time</label>
+                        <div class="input-group col-6 ">
+                            <div class="border-brown-round-left d-flex">
+                                <input class="no-bg-border pl-2" type="time" name="location" value="">
+                            </div>
+                            <i class="material-icons pr-1 align-self-center icon-brown-round-right d-flex">access_time</i>
+                        </div>
+                        <label class="sr-only" for="enddeliverytime">End Delivery Time</label>
+                        <div class="input-group col-6 ">
+                            <div class="border-brown-round-left d-flex">
+                                <input class="no-bg-border pl-2" type="time" name="location" value="">
+                            </div>
+                            <i class="material-icons pr-1 align-self-center icon-brown-round-right d-flex">access_time</i>
+                        </div>
+                    </div>
+                    <button class="btn-default col-6 offset-3 my-2 submit-brown" type="submit" name="submit">Place Order</button>
+                 </div>
+               </form>
+            </div>
+       </div>
+   </body>
+</html>

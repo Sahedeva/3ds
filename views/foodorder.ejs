@@ -1,19 +1,19 @@
-<% include ./partials/header %>
+<% include ./partials/headerfood %>
 
     <div id="mainContent">
 
         <div id="upperContent">
             <h4>Truck Load</h4>
 
-            <h1><%= product %></h1>
-            <h1><%= foodbank %></h1>
+            <!-- <h1><%= product %></h1>
+            <h1><%= foodbank %></h1> -->
             <!--
                 The numbers 0 and 1 that are being passed to the load function
                 represent subtract and add functionalities respectively.
             -->
-            <!-- <a onclick="decrease(<%= product['_id'] %>,<%= foodbank['_id'] %>,<%= product['costperlb'] %>)" href="#"><i class="material-icons green px-2">remove</i></a><div id="numPallets"><%= foodbank['totalPallet'] %></div><a onclick="increase(<%= product['_id'] %>,<%= foodbank['_id'] %>,<%= product['costperlb'] %>)" href="#"><i class="material-icons green px-2">add</i></a> -->
+            <a onclick="load(0)" href="#"><i class="material-icons green px-2">remove</i></a><div id="numPallets">1</div><a onclick="load(1)" href="#"><i class="material-icons green px-2">add</i></a>
 
-            <!-- <h2><%= palletnum %></h2> -->
+
 
         </div>
         <div id="lowerContent">
@@ -21,7 +21,7 @@
             <a onclick="option('default', 'other', 'table1', 'table2')" href="#" id="table1">Details</a><a onclick="option('other', 'default', 'table2', 'table1')" href="#" id="table2">Comments</a>
             <table id="default">
                 <tr>
-                    <td>Estimated Load Cost (<span id="<%= product['_id'] %>"><%= foodbank['load'][product['_id']] %> pallet</span>):</td>$<td id="estCost"></td>
+                    <td>Estimated Load Cost (<span id="num">1 pallet</span>):</td><td></td>
                 </tr>
                 <tr>
                     <td>Location: <%= product.location %></td><td></td>
@@ -46,7 +46,7 @@
                     <td>Combo?</td><td><%= product.combo %></td>
                 </tr>
             </table>
-            <a id="preorder" href="#">Pre-Order</a>
+            <a id="preorder" href="/orderconfirmationfood?id=<%= product['_id'] %>">Pre-Order</a>
         </div>
     </div>
     <script>
@@ -83,6 +83,6 @@
         tableSelect.style.borderBottomColor = "#ebebeb"
     }
 </script>
-<script src="../javascripts/fooder.js" charset="utf-8"></script>
+<script src="../javascripts/foodorder.js" charset="utf-8"></script>
 </body>
 </html>
