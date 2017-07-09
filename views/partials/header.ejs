@@ -2,33 +2,58 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/spacelab/bootstrap.min.css">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="/stylesheets/main.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </head>
   <body>
 
-		<nav class="navbar navbar-default navbar-fixed-top">
-      <div style="background-color:bisque;" class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLinks">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <h3 class="navbar-toggle collapsed" id="collapsedNavTitle">Mars Habitat Sim</h3>
-        <a class="navbar-brand" href="/"><img style="height:45px;margin-top:-12px;"src="/images/marsLogo.jpg" alt="planetMars" /> </a>
-      </div>
-      <div id="navLinks" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="/addproduct">Add Product</a></li>
-          <li><a href="/">Add Environment Model</a></li>
-          <li><a href="/newLab">Add Laboratory Model</a></li>
-          <li><a href="/newHabitat">Add Habitat Model</a></li>
-        </ul>
-        <h2 id="navTitle">Mars Habitat Simulator</h2>
-      </div>
-    </nav>
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded px-1">
+          <div class="d-flex justify-content-between align-items-center">
+              <button class="navbar-toggler no-border px-0" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="color-green">
+                      <i class="material-icons green px-2">menu</i>
+                  </span>
+              </button>
+              <div class="justify-content-center d-flex align-items-center">
+                  <a class="navbar-brand px-0 mx-0 color-green" href="#">Feeding Express</a>
+              </div>
+              <div class="justify-content-right align-items-center d-flex-column hidden-sm-up">
+                  <a href="#">
+                      <i class="material-icons green px-2">location_on</i>
+                  </a>
+                  <a href="#">
+                      <i class="material-icons green px-2">tap_and_play</i>
+                  </a>
+                  <a href="#">
+                      <i class="material-icons green px-2">message</i>
+                  </a>
+              </div>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active pl-3">
+                <a class="nav-link color-green" href="#">Produce List<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item pl-3">
+                <a class="nav-link color-green" href="#">Order Received</a>
+              </li>
+              <li class="nav-item pl-3">
+                <a class="nav-link color-green" href="#">Address Book</a>
+              </li>
+              <li class="nav-item dropdown pl-3">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Sign Out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>

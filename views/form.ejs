@@ -1,92 +1,3 @@
-<!-- <% include ./partials/header %>
-
-  <br><br><br>
-  <img src="../images/AcornSqaush.png" alt="">
-  <form class="addproduct form-group" action="/addproduct" method="post">
-        <label for="description">Product Description</label>
-        <select name="description" class="form-control" style="width: 175px;">
-          <option value="acornsquash">Acorn Squash</option>
-          <option value="asparagus">Asparagus</option>
-          <option value="avocado">Avocado</option>
-          <option value="beets">Beets</option>
-          <option value="bellpepper">Bell Pepper</option>
-          <option value="broccolli">Broccolli</option>
-          <option value="brusselssprouts">Brussels Sprouts</option>
-          <option value="butternutsquash">Butternut Squash</option>
-          <option value="cabbage">Cabbage</option>
-          <option value="cantaloupe">Cantaloupe</option>
-          <option value="carrot">Carrot</option>
-          <option value="cauliflower">Cauliflower</option>
-          <option value="celery">Celery</option>
-          <option value="chayotesquash">Chayote Squash</option>
-          <option value="cilantro">Cilantro</option>
-          <option value="collard">Collard</option>
-          <option value="corn">Corn</option>
-          <option value="cucumber">Cucumber</option>
-          <option value="eggplant">Eggplant</option>
-          <option value="grapefruit">Grapefrutit</option>
-          <option value="graysquash">Gray squash</option>
-          <option value="greenbeans">Green Beans</option>
-          <option value="herbs">Herbs</option>
-          <option value="honeydew">Honeydew</option>
-          <option value="hotpepper">Hot Pepper</option>
-          <option value="jackfruit">Jackfruit</option>
-          <option value="jicama">Jicama</option>
-          <option value="kale">Kale</option>
-          <option value="kohlrabi">Kohlrabi</option>
-          <option value="leefygreens">Leefy Greens</option>
-          <option value="lemons">Lemons</option>
-          <option value="limes">Limes</option>
-          <option value="mango">Mango</option>
-          <option value="onion">Onion</option>
-          <option value="oranges">Oranges</option>
-          <option value="paes">Paes</option>
-          <option value="papaya">Papaya</option>
-          <option value="parsnips">Parsnips</option>
-          <option value="pineapple">Pineapple</option>
-          <option value="potato">Potato</option>
-          <option value="pumpkin">Pumpkin</option>
-          <option value="radish">Radish</option>
-          <option value="rutabaga">Rutabaga</option>
-          <option value="soybeans">Soybeans</option>
-          <option value="spaghettisquash">Spaghetti Squash</option>
-          <option value="spinach">Spinach</option>
-          <option value="sweetpotato">Sweet Potato</option>
-          <option value="swisschard">Swiss Chard</option>
-          <option value="tomatillos">Tomatillos</option>
-          <option value="turnips">Turnips</option>
-          <option value="Watermelon">Watermelon</option>
-          <option value="yellowsquash">Yellow Squash</option>
-          <option value="zucchini">Zucchini</option>
-        </select>
-        <label for="cost">Cost per lb</label>
-        <input class="form-control" step="0.01" style="width: 175px;" type="number" name="costperlb" placeholder="Cost per lb" value="">
-        <label for="container">Container</label>
-        <select name="containter" class="form-control" style="width: 75px;">
-          <option value="pkg">Pkg</option>
-          <option value="bin">Bin</option>
-          <option value="bag">Bag</option>
-          <option value="sack">Sack</option>
-        </select>
-
-      <label for="location">Location</label>
-      <input class="form-control" style="width: 175px;" type="text" name="Location" placeholder="location" value="">
-      <label for="truckloadsoffered">Truck loads offered</label>
-    <input class="form-control" style="width: 75px;" type="number" name="truckloadsoffered" placeholder="Truck Loads Offered" value="">
-    <label for="vendorname">Vendor Name</label>
-    <input class="form-control" style="width: 75px;" type="text" name="vendorname" placeholder="vendorname" value="">
-    <label for="shelflife">Shelf Life</label>
-    <input class="form-control" style="width: 75px;" type="text" name="shelflife" placeholder="Shelf Life" value="">
-    <input type="checkbox" name="combo" value="combo" checked> Combo<br>
-    <label for="comments">Comments</label>
-    <textarea name="comments" rows="4" cols="80"></textarea>
-    <br>
-    <button class="btn-success-lg" type="submit" name="submit" value="Submit">
-  </form>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -109,7 +20,7 @@
                           <label class="sr-only" for="description">Product Description</label>
                           <div class="input-group my-2">
                               <i class="material-icons pr-3 green align-self-center d-flex">note_add</i>
-                              <select class="custom-select border-green">
+                              <select name="description" class="custom-select border-green">
                                   <option value="acornsquash">Acorn Squash</option>
                                   <option value="asparagus">Asparagus</option>
                                   <option value="avocado">Avocado</option>
@@ -170,9 +81,9 @@
                         <label class="sr-only" for="costperlb">Cost per lb</label>
                         <div class="input-group my-2 mr-sm-2 align-items-middle d-flex">
                           <i class="material-icons pr-1 align-self-center d-flex">attach_money</i>
-                          <input class="border-green" type="number" name="costperlb" placeholder="Cost per lb" value="">
+                          <input class="border-green" type="number" step="0.01" name="costperlb" placeholder="Cost per lb" value="">
                           <label class="sr-only" for="location">Location</label>
-                          <select class="custom-select ml-4 green-bot">
+                          <select name="container" class="custom-select ml-4 green-bot">
                               <option value="pkg">Pkg</option>
                               <option value="bin">Bin</option>
                               <option value="bag">Bag</option>
@@ -190,11 +101,11 @@
                           <input class="border-green" type="number" name="truckloadsoffered" placeholder="Truck Loads Offered" value="">
                         </div>
                         <label class="sr-only" for="cost">Cost per lb</label>
-                        <div class="input-group my-2 mr-sm-2 align-items-middle d-flex">
-                          <i class="material-icons pr-1 align-self-center d-flex">attach_money</i>
-                          <input class="border-green" type="number" name="costperlb" placeholder="Estimated Load Cost" value="">
-                          <i class="material-icons pl-2 align-self-center d-flex green">refresh</i>
-                        </div>
+                        <!-- <div class="input-group my-2 mr-sm-2 align-items-middle d-flex"> -->
+                          <!-- <i class="material-icons pr-1 align-self-center d-flex">attach_money</i> -->
+                          <!-- <input class="border-green" type="number" step="0.01" name="costperlb" placeholder="Estimated Load Cost" value=""> -->
+                          <!-- <i class="material-icons pl-2 align-self-center d-flex green">refresh</i> -->
+                        <!-- </div> -->
 
                         <label class="sr-only" for="vendorname">Vendor Name</label>
                         <div class="input-group my-2 mr-sm-2">
@@ -204,7 +115,7 @@
 
                         <label class="sr-only" for="shelflife">Shelf Life</label>
                         <div class="input-group my-2 align-self-center">
-                            <input class="align-self-center p-1 border-green-round" type="number" name="shelflife" placeholder="Shelf Life" value="">&nbsp;&nbsp;Days
+                            <input class="align-self-center p-1 border-green-round" type="number" name="shelflife" placeholder="Shelf Life" value="">&nbsp;&nbsp;Days Remaining
                         </div>
                         <div class="input-group align-self-center">
                             <input type="checkbox" name="combo" value="combo" class="align-self-center" checked>&nbsp;&nbsp;Combo<br>
@@ -212,9 +123,9 @@
                         <label class="sr-only" for="comments">Comments</label>
                         <textarea name="comments" rows="4" class="border-green-round p-1 d-flex justify-content-start mt-2" cols="40" placeholder="Comments"></textarea>
                         <div class="d-flex justify-content-end">
-                            <a href="submit">
+                            <button>
                                 <i class="material-icons green text-right align-self-center d-flex">forward</i>
-                            </a>
+                            </button>
                         </div>
                   </div>
                 </div>

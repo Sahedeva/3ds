@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 
 var productSchema = new mongoose.Schema({
   description: String,
-  cost: Number,
-  loadcost: Number,
+  costperlb: String,
+  loadcost: String,
   container: String,
   location: String,
   truckloadsoffered: Number,

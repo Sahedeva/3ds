@@ -21,13 +21,16 @@ router.get('/addproduct', function(req,res,next){
 });
 
 router.post('/addproduct', function(req, res, next) {
-
+    var costperlb = "$"+req.body.costperlb;
+    var truckloadsoffered = req.body.truckloadsoffered
+    var loadcost = "$"+req.body.costperlb*2000*truckloadsoffered*21
     var newProduct = Product({
         description: req.body.description,
-        cost: req.body.cost,
+        costperlb: costperlb,
+        loadcost: loadcost,
         container: req.body.container,
         location: req.body.location,
-        truckloadsoffered: req.body.truckloadsoffered,
+        truckloadsoffered: truckloadsoffered,
         vendorname: req.body.vendorname,
         shelflife: req.body.shelflife,
         combo: req.body.combo,
@@ -38,8 +41,16 @@ router.post('/addproduct', function(req, res, next) {
     newProduct.save(function(err) {
         if (err) console.log(err);
 
-        res.send('Product created!');
+        res.redirect('/productlist');
     });
+});
+
+router.get('/productlist', function(req,res,next){
+  Product.find({}, function(err, products){
+    console.log(products);
+    var len = products.length
+    res.render('productlist', {products:products, len:len});
+  });
 });
 
 router.get('/xcode', function(req, res, next){
@@ -63,6 +74,10 @@ router.post('/login', function(req, res, next) {
 
         res.send('User created!');
     });
+});
+
+router.get('/form',function(req,res,next){
+  res.render('form');
 });
 
 router.get('/products', function(req,res,next){
@@ -163,20 +178,23 @@ router.post('/productMock', function(req,res,next){
 router.post('/xcode', function(req, res, next){
   // var one = req.body.one;
   var bod = req.body;
-  console.log('bod: ', bod);
-  // console.log('One: ',one);
-  var newTest = Test({
-    bod: bod
+  Product.find({}, function(err, products){
+    res.json({products:products});
   });
-
-  newTest.save(function(err){
-    if (err) console.log(err);
-
-    res.json({products:[{"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.06","Estimated Load Cost":"$2,520","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Bagley","Estimated Shelf Life":"6-9 days","Comments":"NEEDS TO MOVE TODAY","Combo?":"valley"},
-    {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.08","Estimated Load Cost":"$3,360","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Crescent Fruit","Estimated Shelf Life":"7-10days","Comments":"Seeded or Seedless","Combo?":"valley"},
-    {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.09","Estimated Load Cost":"$3,780","Location":"valley-area","Truckloads Offered":"2","Vendor Name":"Majestic","Estimated Shelf Life":"7-10days","Comments":"","Combo?":"valley"},
-    {"Product Description":"Onions","Packaging":"bag","Cost per lb":"$0.10","Estimated Load Cost":"$4,000","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Tex Mex","Estimated Shelf Life":"7-10days","Comments":"assorted","Combo?":"valley"}]});
-  })
+  // console.log('bod: ', bod);
+  // // console.log('One: ',one);
+  // var newTest = Test({
+  //   bod: bod
+  // });
+  //
+  // newTest.save(function(err){
+  //   if (err) console.log(err);
+  //
+  //   res.json({products:[{"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.06","Estimated Load Cost":"$2,520","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Bagley","Estimated Shelf Life":"6-9 days","Comments":"NEEDS TO MOVE TODAY","Combo?":"valley"},
+  //   {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.08","Estimated Load Cost":"$3,360","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Crescent Fruit","Estimated Shelf Life":"7-10days","Comments":"Seeded or Seedless","Combo?":"valley"},
+  //   {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.09","Estimated Load Cost":"$3,780","Location":"valley-area","Truckloads Offered":"2","Vendor Name":"Majestic","Estimated Shelf Life":"7-10days","Comments":"","Combo?":"valley"},
+  //   {"Product Description":"Onions","Packaging":"bag","Cost per lb":"$0.10","Estimated Load Cost":"$4,000","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Tex Mex","Estimated Shelf Life":"7-10days","Comments":"assorted","Combo?":"valley"}]});
+  // })
 
 });
 
