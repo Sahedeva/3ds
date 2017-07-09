@@ -9,7 +9,7 @@ var productSchema = new mongoose.Schema({
   truckloadsoffered: Number,
   vendorname: String,
   shelflife: String,
-  combo: Boolean,
+  combo: String,
   comments: String,
   created_at: Date,
   updated_at: Date

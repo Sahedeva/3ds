@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var Test = require('../models/test');
+var Product = require('../models/product');
 var request = require("request");
 var csv = require("csv");
 var nodemailer = require('nodemailer');
@@ -20,14 +21,17 @@ router.get('/addproduct', function(req,res,next){
 });
 
 router.post('/addproduct', function(req, res, next) {
-    var description = req.body.description;
-    var email = req.body.email;
-    var favorite = req.body.favorite;
 
     var newProduct = Product({
         description: req.body.description,
-        email: email,
-        favorite: favorite,
+        cost: req.body.cost,
+        container: req.body.container,
+        location: req.body.location,
+        truckloadsoffered: req.body.truckloadsoffered,
+        vendorname: req.body.vendorname,
+        shelflife: req.body.shelflife,
+        combo: req.body.combo,
+        comments: req.body.comments
     });
 
     // Save the user
@@ -168,12 +172,11 @@ router.post('/xcode', function(req, res, next){
   newTest.save(function(err){
     if (err) console.log(err);
 
-    res.json([
-    {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.06","Estimated Load Cost":"$2,520","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Bagley","Estimated Shelf Life":"6-9 days","Comments":"NEEDS TO MOVE TODAY","Combo?":"valley"},
+    res.json({products:[{"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.06","Estimated Load Cost":"$2,520","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Bagley","Estimated Shelf Life":"6-9 days","Comments":"NEEDS TO MOVE TODAY","Combo?":"valley"},
     {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.08","Estimated Load Cost":"$3,360","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Crescent Fruit","Estimated Shelf Life":"7-10days","Comments":"Seeded or Seedless","Combo?":"valley"},
     {"Product Description":"Watermelon","Packaging":"bin","Cost per lb":"$0.09","Estimated Load Cost":"$3,780","Location":"valley-area","Truckloads Offered":"2","Vendor Name":"Majestic","Estimated Shelf Life":"7-10days","Comments":"","Combo?":"valley"},
     {"Product Description":"Onions","Packaging":"bag","Cost per lb":"$0.10","Estimated Load Cost":"$4,000","Location":"valley-area","Truckloads Offered":"1/day","Vendor Name":"Tex Mex","Estimated Shelf Life":"7-10days","Comments":"assorted","Combo?":"valley"},
-    {"Product Description":"Green Cabbage","Packaging":"sack","Cost per lb":"$0.07","Estimated Load Cost":"$2,940","Location":"valley-area","Truckloads Offered":"5","Vendor Name":"Morgan and Sons","Estimated Shelf Life":"7-10days","Comments":"","Combo?":"valley"}]);
+    {"Product Description":"Green Cabbage","Packaging":"sack","Cost per lb":"$0.07","Estimated Load Cost":"$2,940","Location":"valley-area","Truckloads Offered":"5","Vendor Name":"Morgan and Sons","Estimated Shelf Life":"7-10days","Comments":"","Combo?":"valley"}]});
   })
 
 });
