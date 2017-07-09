@@ -3,21 +3,95 @@ var router = express.Router();
 var User = require('../models/user');
 var Test = require('../models/test');
 var Product = require('../models/product');
+var Foodbank = require('../models/foodbank');
 var request = require("request");
 var csv = require("csv");
 var nodemailer = require('nodemailer');
+var bcrypt = require('bcrypt');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '3DS' });
+  res.render('login');
 });
 
+
+
 router.get('/login', function(req,res,next){
-  res.render('login', {title: 'Login Page'});
+  res.render('login');
+});
+
+router.get('/register', function(req,res,next){
+  res.render('register');
+});
+
+router.get('/foodbankregister', function(req,res,next){
+  res.render('foodbankregister');
+});
+
+router.post('/foodbankregister', function(req,res,next){
+  console.log(req.body);
+  var loadcost = 0;
+  var load = {};
+  var newFoodbank = Foodbank({
+      load: load,
+      loadcost: loadcost,
+      foodbankname: req.body.foodbankname,
+      foodbankaddress: req.body.foodbankaddress,
+      foodbankphone: req.body.foodbankphone,
+      accountingPhone: req.body.accountingPhone,
+      accountingMobile: req.body.accountingMobile,
+      accountingEmail: req.body.accountingEmail,
+      accountingPosition: req.body.accountingPosition,
+      accountingFirstName: req.body.accountingFirstName,
+      accountingLastName: req.body.accountingLastName,
+      receivingPhone: req.body.receivingPhone,
+      receivingMobile: req.body.receivingPhone,
+      receivingEmail: req.body.receivingEmail,
+      receivingPosition: req.body.receivingPosition,
+      receivingLastName: req.body.receivingLastName,
+      receivingFirstName: req.body.receivingFirstName,
+      sourcingPhone: req.body.sourcingPhone,
+      sourcingEmail: req.body.sourcingEmail,
+      sourcingMobile: req.body.sourcingMobile,
+      sourcingPosition: req.body.sourcingPosition,
+      sourcingLastName: req.body.sourcingLastName,
+      sourcingFirstName: req.body.sourcingFirstName,
+      tier: req.body.tier
+  });
+
+  newFoodbank.save(function(err) {
+      if (err) console.log(err);
+
+      res.redirect('/');
+  });
 });
 
 router.get('/addproduct', function(req,res,next){
   res.render('addproduct');
+});
+
+router.get('/foodorder',function(req,res,next){
+  var id = req.query.id;
+  Product.findOne({_id:id}, function(err, product){
+    Foodbank.findOne({_id:"596211f31acdec1fa88ee67f"}, function (err,foodbank){
+      res.render('foodorder', {product:product, foodbank:foodbank});
+    });
+
+  });
+});
+
+router.post('/foodsave', function(req,res,next){
+  var load = {};
+  Foodbank.findOneAndUpdate({'_id': "596211f31acdec1fa88ee67f"}, {load: load}, {new: true}, function(err, venue) {
+   res.json({
+           success: true,
+           message: 'Venue no longer reads as recently modified.'
+           });
+   if (err) {
+     console.log('got an error');
+   }
+ });
+
 });
 
 router.post('/addproduct', function(req, res, next) {
@@ -57,22 +131,24 @@ router.get('/xcode', function(req, res, next){
   res.render('xcode', {title: 'Xcode Page'});
 });
 
-router.post('/login', function(req, res, next) {
-    var name = req.body.name;
+router.post('/register', function(req, res, next) {
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
     var email = req.body.email;
-    var favorite = req.body.favorite;
+    var password = req.body.password;
 
     var newUser = User({
-        name: name,
+        firstname: firstname,
+        lastname: lastname,
         email: email,
-        favorite: favorite,
+        password: password,
     });
 
     // Save the user
     newUser.save(function(err) {
         if (err) console.log(err);
 
-        res.send('User created!');
+        res.redirect('/foodproductlist');
     });
 });
 
@@ -82,6 +158,44 @@ router.get('/form',function(req,res,next){
 
 router.get('/products', function(req,res,next){
   res.render('products', {title:'CSV picker'});
+});
+
+router.post('/login', function(req, res) {
+  var email = req.body.email;
+  var password = req.body.password;
+
+  User.findOne({
+    email: email
+  }, function(err, user) {
+
+    if (err) throw err;
+
+    if (!user) {
+      res.json({ success: false, message: 'Authentication failed. User not found.' });
+    }
+    else if (user) {
+
+      bcrypt.compare(password, user.password, function(err, result) {
+        if (!result) {
+          res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+        }
+        else {
+
+          res.redirect('/foodproductlist');
+        }
+      });
+
+    }
+  });
+
+});
+
+router.get('/foodproductlist',function(req,res,next){
+  Product.find({}, function(err, products){
+    console.log(products);
+    var len = products.length
+    res.render('foodproductlist', {products:products, len:len});
+  });
 });
 
 router.get('/emailtest', function(req, res, next){

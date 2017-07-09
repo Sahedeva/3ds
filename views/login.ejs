@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1 class="center"><%= title %></h1>
+<% include ./partials/header %>
+
+    <div class="offset-sm-4">
+
+
+    <br>
+    <h2>Login</h2>
     <br>
     <form class="login" action="login" method="post">
-      <input type="text" name="name" placeholder="name" value="">
-      <input type="email" name="email" placeholder="email" value="">
-      <input type="text" name="favorite" placeholder="favorite" value="">
-      <input type="submit" name="submit" value="Submit">
+      <input type="email" name="email" placeholder="email" value=""><br>
+      <input type="password" name="password" placeholder="password" value=""><br>
+      <input class="btn-default" type="submit" name="submit" value="Sign In">
     </form>
+    <br><br>
+    <h3>Need an account?</h3><a href="/register">Sign Up</a>
+
+</div>
   </body>
 </html>

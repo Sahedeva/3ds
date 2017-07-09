@@ -1,0 +1,86 @@
+<% include ./partials/header %>
+
+    <div id="mainContent">
+
+        <div id="upperContent">
+            <h4>Truck Load</h4>
+
+            <h1><%= product %></h1>
+            <h1><%= foodbank %></h1>
+            <!--
+                The numbers 0 and 1 that are being passed to the load function
+                represent subtract and add functionalities respectively.
+            -->
+            <a onclick="load(0)" href="#"><i class="material-icons green px-2">remove</i></a><div id="numPallets">1</div><a onclick="load(1)" href="#"><i class="material-icons green px-2">add</i></a>
+
+
+
+        </div>
+        <div id="lowerContent">
+            <!-- The option function hides one of the tables below. The order matters in the argument. -->
+            <a onclick="option('default', 'other', 'table1', 'table2')" href="#" id="table1">Details</a><a onclick="option('other', 'default', 'table2', 'table1')" href="#" id="table2">Comments</a>
+            <table id="default">
+                <tr>
+                    <td>Estimated Load Cost (<span id="num">1 pallet</span>):</td><td></td>
+                </tr>
+                <tr>
+                    <td>Location:</td><td></td>
+                </tr>
+                <tr>
+                    <td>Truckloads Offered:</td><td></td>
+                </tr>
+                <tr>
+                    <td>Vendore Name:</td><td></td>
+                </tr>
+                <tr>
+                    <td>Estimated Shelf Life:</td><td></td>
+                </tr>
+            </table>
+
+            <table id="other">
+                <tr>
+                    <td>Comments</td><td></td>
+                </tr>
+                <tr>
+                    <td>Combo?</td><td></td>
+                </tr>
+            </table>
+            <a id="preorder" href="#">Pre-Order</a>
+        </div>
+    </div>
+    <script>
+    // This function adds and subtracts the amount of pallets in the truck load.
+    function load(selector)
+    {
+        var text = document.getElementById("numPallets").textContent;
+        var num = Number(text); // Converts the text to integer so number can be manipulated.
+        if (selector == 0 && num > 1)
+            num--;
+        else if (selector == 1 && num < 21)
+            num++;
+        // Exit function to avoid changing the content of the page.
+        else
+            return;
+        text = num.toString();
+        document.getElementById("numPallets").innerHTML = text;
+        // Makes sure that the word "pallet" is singular or plural.
+        if (num == 1)
+            document.getElementById("num").innerHTML = text + " pallet";
+        else
+            document.getElementById("num").innerHTML = text + " pallets";
+    }
+    // Hides one table from the page
+    function option(selector1, selector2, selector3, selector4)
+    {
+        var tableSelect = document.getElementById(selector1);
+        tableSelect.style.display='block';
+        tableSelect = document.getElementById(selector2);
+        tableSelect.style.display='none';
+        tableSelect = document.getElementById(selector3);
+        tableSelect.style.borderBottomColor = "#4dd0e1"
+        tableSelect = document.getElementById(selector4);
+        tableSelect.style.borderBottomColor = "#ebebeb"
+    }
+</script>
+</body>
+</html>

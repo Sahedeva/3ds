@@ -1,0 +1,19 @@
+<% include ./partials/header %>
+
+    <div class="offset-sm-5">
+    <% for (var i = 0; i< len;i++){ %>
+
+
+    <div class="item">
+        <a href="/foodorder?id=<%= products[i]['_id'] %>"><img class="veggie" src="../images/<%= products[i]['description'] %>.png"/></a>
+        <div class="info"><h4 class="itemName"><%= products[i]['description'] %></h4>
+          <p>cost: <%= products[i]['costperlb'] %></p>
+          </div>
+        <div class="storage"><%= products[i]['container'] %></div>
+    </div>
+    <div class="time"><p><%= products[i]['shelflife'] %> days remaing</p><p>Pallets Available: <%= products[i]['truckloadsoffered']*21 %></p></div>
+    <% } %>
+
+    </div>
+  </body>
+</html>
