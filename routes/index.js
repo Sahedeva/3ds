@@ -15,6 +15,10 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
+router.get('/addressfoodbankmembers', function(req,res,next){
+  res.render('addressfoodbankmembers');
+});
+
 router.get('/orderconfirmationfood', function(req,res,next){
   var id = req.query.id;
   Product.findOne({_id:id}, function(err, product){

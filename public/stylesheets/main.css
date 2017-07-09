@@ -356,3 +356,15 @@ span{
    border-radius: 0.8em;
    font-size: 4em;
  }
+
+ a.no-style{text-decoration: none; color: grey;}
+.green-card-rect.gray-text.col-12.my-2.text-center{color: gray;}
+.green-highlight-white-card-rect{ border: 2px solid #4EA975; width: 90vw; margin-right: auto; margin-left: auto;}
+
+.green-card-rect{
+    background-color: #D9E9DF;
+    color: white;
+    border-style: none;
+    width: 100vw;
+    padding: 2em 0em;
+}
