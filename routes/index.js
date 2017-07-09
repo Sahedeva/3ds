@@ -128,9 +128,9 @@ router.post('/foodsave', function(req,res,next){
 });
 
 router.post('/addproduct', function(req, res, next) {
-    var costperlb = "$"+req.body.costperlb;
+    var costperlb = req.body.costperlb;
     var truckloadsoffered = req.body.truckloadsoffered
-    var loadcost = "$"+req.body.costperlb*2000*truckloadsoffered*21
+    var loadcost = req.body.costperlb*2000*truckloadsoffered*21
     var newProduct = Product({
         description: req.body.description,
         costperlb: costperlb,
@@ -270,7 +270,7 @@ router.post('/emailnotification', function(req, res, next){
 
     var mailOptions = {
     from: 'noreplay@gmail.com', // sender address
-    to: 'brendankellyatx@gmail.com', // list of receivers
+    to: 'nitinvbati@gmail.com', // list of receivers
     subject: subject, // Subject line
     body: body // You can choose to send an HTML body instead
     };
